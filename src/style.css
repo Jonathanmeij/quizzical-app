@@ -21,6 +21,7 @@ p,
 h1,
 h2,
 h3,
+h4,
 div {
     margin: 0;
     padding: 0;
@@ -141,4 +142,57 @@ hr {
 
 input:disabled {
     background-color: #424e8a;
+}
+
+.slidecontainer {
+    margin-top: 20px;
+}
+
+h4 {
+    color: var(--blue-text);
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.settings-accordion {
+    background-color: rgb(231, 231, 231);
+    border-radius: 10px;
+    padding: 5px 20px;
+    margin-top: 20px;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.settings-title {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+.settings-title > h3 {
+    color: var(--blue-text);
+    margin: 5px;
+    font-weight: 400;
+}
+
+.slider-container > h4 {
+    margin-top: 15px;
+}
+
+.settings-divider {
+    border-color: rgb(201, 201, 201);
+    margin-top: 5px;
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.settings-container {
+    margin-bottom: 10px;
 }

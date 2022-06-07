@@ -1,8 +1,9 @@
 import { nanoid } from "nanoid";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Question from "./Question";
 import blobs from "../images/blobs.png";
 import blobs2 from "../images/blobs2.png";
+import Settings from "./Settings";
 
 export default function Main() {
     //used to switch from start screen to quiz screen
@@ -17,9 +18,17 @@ export default function Main() {
     //keeps track of the correct choices
     const [correct, setCorrect] = useState(0);
 
+    //sets amount of questions
+    const [questionAmount, setQuestionAmount] = useState(5);
+
+    //sets difficulty
+    const [difficulty, setDifficulty] = useState("easy");
+
     //fetches quiz data from API
     function fetchData() {
-        fetch("https://opentdb.com/api.php?amount=5&category=9&difficulty=medium")
+        fetch(
+            `https://opentdb.com/api.php?amount=${questionAmount}&category=9&difficulty=${difficulty}`
+        )
             .then((res) => res.json())
             .then((data) =>
                 setQuestions(
@@ -37,13 +46,9 @@ export default function Main() {
             );
     }
 
-    //fetches data when page loads
-    useEffect(() => {
-        fetchData();
-    }, []);
-
     //go from start screen to quiz screen
     function startQuiz() {
+        fetchData();
         setHasStarted((prev) => !prev);
     }
 
@@ -102,6 +107,14 @@ export default function Main() {
         setCorrect(0);
     }
 
+    function handleQuestionChange(event) {
+        setQuestionAmount(event.target.value);
+    }
+
+    function handleDifficultyChange(event) {
+        setDifficulty(event.target.value);
+    }
+
     return (
         <div>
             {/* start screen */}
@@ -112,6 +125,12 @@ export default function Main() {
                     <button className="start" onClick={startQuiz}>
                         Start quiz
                     </button>
+                    <Settings
+                        questionAmount={questionAmount}
+                        handleQuestionChange={handleQuestionChange}
+                        difficulty={difficulty}
+                        handleDifficultyChange={handleDifficultyChange}
+                    />
                 </div>
             )}
             {/* quiz screen */}
