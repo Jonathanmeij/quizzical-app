@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700&display=swap");
+
+:root {
+    --blue-text: #293264;
+    --blue-button: #4d5b9e;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Karla", sans-serif;
+}
+
+body {
+    padding-bottom: 40px;
+}
+
+p,
+h1,
+h2,
+h3,
+div {
+    margin: 0;
+    padding: 0;
+}
+
+#blobs {
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: -1;
+}
+
+#blobs2 {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.start--container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    font-family: inherit;
+    font-size: 1rem;
+    border-style: none;
+    padding: 10px 40px;
+    background-color: var(--blue-button);
+    border-radius: 10px;
+    color: white;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #424e8a;
+}
+
+h1 {
+    color: var(--blue-text);
+}
+
+p {
+    color: var(--blue-text);
+}
+
+.quiz--container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.answer--container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.questions--container {
+    max-width: 700px;
+    margin: 10px;
+    margin-top: 40px;
+}
+
+h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: var(--blue-text);
+}
+
+hr {
+    border-color: #dbdef0;
+    border-style: solid;
+    margin: 20px 0px;
+}
+
+.radio--button input[type="radio"] {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+}
+
+.radio--button label {
+    display: inline-block;
+    background-color: rgb(255, 255, 255);
+    padding: 5px 20px;
+    margin-right: 10px;
+    margin-top: 10px;
+    font-size: 1rem;
+    border: 1px solid #9ca2c0;
+    border-radius: 8px;
+    color: var(--blue-text);
+    cursor: pointer;
+}
+
+.radio--button label:hover {
+    background-color: #424e8a11;
+}
+
+.radio--button input[type="radio"]:focus + label {
+    border: none;
+}
+
+.radio--button input[type="radio"]:checked + label {
+    background-color: #bfb;
+    border: none;
+    background-color: #d6dbf5;
+}
+
+input:disabled {
+    background-color: #424e8a;
+}
